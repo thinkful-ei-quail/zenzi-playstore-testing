@@ -7,6 +7,10 @@ const app = express();
 app.use(morgan('common'));
 app.use(cors());
 
+app.get('/', (req, res) => {
+  res.send('Hello Express!');
+});
+
 //create a variable for data
 const validGenres = ['Action', 'Puzzle', 'Strategy', 'Casual', 'Arcade', 'Card'];
 const playApps = require('./playstore.js');
@@ -40,4 +44,4 @@ app.get('/apps', (req, res) => {
   res.json(filteredArray);
 });
 
-app.listen(8000, () => {console.log('Server started on port:8000');});
+module.exports = app;
